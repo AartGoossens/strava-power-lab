@@ -33,8 +33,9 @@ strava_login_layout= html.Div([
 
 
 app_layout = html.Div([
+    html.P('Select Ride and segments'),
     dcc.Dropdown(id='ride-dropdown'),
-    html.Hr(),
+    html.Br(),
     dash_table.DataTable(
         id='segment-datatable',
         columns=[

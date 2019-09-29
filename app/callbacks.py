@@ -96,4 +96,7 @@ def ride_dropdown(ride, strava_auth):
 )
 def results(n_clicks, data, selected_rows):
     selected_rows = selected_rows or []
-    return [[html.Div(data[i]['segment_name']) for i in selected_rows]]
+    results = []
+    results.append(html.H3('Results'))
+    results = results + [html.P(data[i]['segment_name']) for i in selected_rows]
+    return [results]
