@@ -11,6 +11,7 @@ app.layout = html.Div([
     dcc.Store(id='strava-auth', storage_type='session'),
     dcc.Location(id='url', refresh=False),
     html.H1(children='Strava Power Lab'),
+    html.Hr(),
     html.Div(id='body')
 ])
 
@@ -33,7 +34,7 @@ strava_login_layout= html.Div([
 
 app_layout = html.Div([
     dcc.Dropdown(id='ride-dropdown'),
-    html.P(''),
+    html.Hr(),
     dash_table.DataTable(
         id='segment-datatable',
         columns=[
@@ -52,8 +53,8 @@ app_layout = html.Div([
         page_current= 0,
         page_size= 20,
     ),
-    html.P(''),
+    html.Hr(),
     html.Button('Do the math!', id='do-the-math-button'),
-    html.P(''),
+    html.Hr(),
     html.Div(id='results'),
 ])
