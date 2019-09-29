@@ -52,4 +52,8 @@ app_layout = html.Div([
         page_current= 0,
         page_size= 20,
     ),
+    html.P(''),
+    html.Button('Do the math!', id='do-the-math-button'),
+    html.P(''),
+    html.Div(id='results'),
 ])

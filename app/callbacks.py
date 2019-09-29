@@ -1,6 +1,7 @@
 from urllib.parse import urlparse, parse_qs
 
 import dash
+import dash_html_components as html
 from stravalib import Client
 from stravalib.exc import AuthError
 
@@ -79,3 +80,19 @@ def ride_dropdown(ride, strava_auth):
         })
 
     return [segments]
+
+
+@app.callback(
+    output=[
+        dash.dependencies.Output('results', 'children'),
+    ],
+    inputs=[
+        dash.dependencies.Input('do-the-math-button', 'n_clicks')
+    ],
+    state=[
+        dash.dependencies.State('segment-datatable', 'data'),
+        dash.dependencies.State('segment-datatable', 'selected_rows')
+    ]
+)
+def results(n_clicks, data, selected_rows):
+    return [[html.Div(data[i]['segment_name']) for i in selected_rows]]
